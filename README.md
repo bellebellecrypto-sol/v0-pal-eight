@@ -1,2 +1,0 @@
-# Colour palette generator
-
