@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { TabBar, type Tab } from "@/components/tab-bar";
 import { GenerateView } from "@/components/generate-view";
 import { ExploreView } from "@/components/explore-view";
@@ -228,14 +227,13 @@ function HomeContent() {
                   <p className="mt-1 text-sm text-muted-foreground">
                     Tap the heart icon on any palette to save it
                   </p>
-                  <Link
-                    href="/"
-                    onClick={() => setShowSaved(false)}
+                  <button
+                    onClick={() => { setShowSaved(false); setActiveTab("generate"); }}
                     className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary"
                   >
                     Start generating palettes
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </button>
                 </div>
               ) : filteredPalettes.length === 0 ? (
                 <div className="py-16 text-center">
