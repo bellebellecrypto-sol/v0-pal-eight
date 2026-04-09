@@ -1,21 +1,14 @@
 import React from "react";
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Inconsolata } from 'next/font/google'
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { DM_Sans as V0_Font_DM_Sans, Inconsolata as V0_Font_Inconsolata } from 'next/font/google'
 
 // Initialize fonts
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ["300","400","500","600","700","800","900"],
-  variable: '--font-sans',
-  display: 'swap',
-})
-const inconsolata = Inconsolata({
-  subsets: ['latin'],
-  weight: ["400","500","600","700"],
-  variable: '--font-mono',
-  display: 'swap',
-})
+const _dmSans = V0_Font_DM_Sans({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900","1000"] })
+const _inconsolata = V0_Font_Inconsolata({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "pal - Color Palette Generator",
@@ -40,6 +33,7 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
+    generator: 'v0.app'
 };
 
 export const viewport: Viewport = {
@@ -57,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${inconsolata.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased overscroll-none">
         {children}
       </body>
